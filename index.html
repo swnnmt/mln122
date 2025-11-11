@@ -3,460 +3,491 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giá trị thặng dư 4.0 - Mô phỏng học tập tương tác</title>
+    <title>Lịch sử Tài chính Toàn cầu – Những cú sốc làm thay đổi thế giới</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <!-- Header & Navigation -->
-    <header class="header">
+    <!-- Navigation -->
+    <nav class="navbar">
         <div class="container">
-            <div class="header-content">
+            <div class="nav-content">
                 <div class="logo">
-                    <!-- <span class="logo-icon">📊</span> -->
-                    <span class="logo-text">Giá trị thặng dư 4.0</span>
+                    <span class="logo-icon">📈</span>
+                    <span class="logo-text">Lịch sử Tài chính Toàn cầu</span>
                 </div>
-                <nav class="nav-menu">
-                    <a href="#" class="nav-link active" data-page="home">Trang chủ</a>
-                    <a href="#" class="nav-link" data-page="about">Giới thiệu</a>
-                    <a href="#" class="nav-link" data-page="simulation">Mô phỏng</a>
-                    <a href="#" class="nav-link" data-page="knowledge">Kiến thức</a>
-                    <a href="#" class="nav-link" data-page="modern">Ứng dụng thực tế</a>
-                </nav>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Trang chủ</a></li>
+                    <li><a href="#about" class="nav-link">Giới thiệu</a></li>
+                    <li><a href="#timeline" class="nav-link">Dòng thời gian</a></li>
+                    <li><a href="#interactive" class="nav-link">Trải nghiệm</a></li>
+                    <li><a href="#lessons" class="nav-link">Bài học</a></li>
+                    <li><a href="#feedback" class="nav-link">Phản hồi</a></li>
+                </ul>
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <!-- Banner -->
-    <section class="banner" id="banner">
-        <div class="banner-overlay"></div>
+    <!-- 1. Trang chủ -->
+    <section id="home" class="hero-section">
+        <div class="hero-overlay"></div>
         <div class="container">
-            <div class="banner-content">
-                <h1 class="banner-title">Khám phá cách giá trị thặng dư vận hành trong nền kinh tế hiện đại</h1>
-                <p class="banner-subtitle">Công cụ học tập tương tác môn Kinh tế chính trị Mác – Lênin</p>
-                <button class="banner-btn" onclick="navigateToPage('simulation')">Bắt đầu mô phỏng ngay</button>
+            <div class="hero-content">
+                <h1 class="hero-title">Khám phá những sự kiện tài chính làm thay đổi thế giới</h1>
+                <p class="hero-subtitle">
+                    Từ bong bóng hoa Tulip thế kỷ 17 đến sự trỗi dậy của tiền điện tử, 
+                    hãy cùng khám phá những bước ngoặt lớn trong lịch sử tài chính nhân loại.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#interactive" class="btn btn-primary">Bắt đầu khám phá</a>
+                    <a href="#about" class="btn btn-secondary">Tìm hiểu thêm</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Cuộn xuống</span>
+            <div class="scroll-arrow">↓</div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider">
+        <div class="divider-line"></div>
+        <div class="divider-number">01</div>
+        <div class="divider-line"></div>
+    </div>
+
+    <!-- 2. Giới thiệu -->
+    <section id="about" class="section about-section">
+        <div class="section-header">
+            <span class="section-number">01</span>
+            <h2 class="section-title">Giới thiệu</h2>
+        </div>
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Về website học tập tương tác</h3>
+                    <p>
+                        Đây là website học tập tương tác về <strong>Lịch sử Tài chính</strong>, giúp người học 
+                        trực quan hóa các biến cố kinh tế, hiểu sâu nguyên nhân – diễn biến – hậu quả, 
+                        và rút ra bài học thực tiễn từ mỗi giai đoạn.
+                    </p>
+                    <p>
+                        Thông qua dòng thời gian tương tác và phân tích tác động thực tế, người học có thể 
+                        dễ dàng nắm bắt các sự kiện tài chính phức tạp, hiểu mối liên hệ giữa quá khứ và hiện tại, 
+                        và học chủ động thay vì chỉ đọc sách giáo khoa khô khan.
+                    </p>
+                </div>
+                <div class="about-cards">
+                    <div class="about-card">
+                        <div class="card-icon">🎯</div>
+                        <h4>Đối tượng hướng tới</h4>
+                        <p>Sinh viên các ngành Kinh tế, Tài chính, Ngân hàng, và những ai yêu thích lịch sử kinh tế thế giới.</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="card-icon">💡</div>
+                        <h4>Lợi ích học tập</h4>
+                        <p>Dễ dàng nắm bắt các sự kiện tài chính phức tạp qua mô hình tương tác, hiểu mối liên hệ giữa quá khứ và hiện tại.</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="card-icon">📚</div>
+                        <h4>Nội dung phong phú</h4>
+                        <p>Từ bong bóng hoa Tulip 1637 đến sự trỗi dậy của tiền điện tử, khám phá các bước ngoặt lớn trong lịch sử.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Main Content Container -->
-    <main class="main-content">
-        <!-- Screen 1: Trang chủ (Home) -->
-        <section id="home" class="page-section active">
-            <div class="container">
-                <h2 class="page-title">Trang chủ</h2>
-                <div class="content-box">
-                    <div class="intro-content">
-                        <h3>Giá trị thặng dư là gì?</h3>
-                        <p class="intro-text">
-                            <strong>Giá trị thặng dư</strong> là phần giá trị do lao động tạo ra vượt quá giá trị sức lao động – 
-                            nguồn gốc của lợi nhuận trong chủ nghĩa tư bản.
+    <!-- Section Divider -->
+    <div class="section-divider">
+        <div class="divider-line"></div>
+        <div class="divider-number">02</div>
+        <div class="divider-line"></div>
+    </div>
+
+    <!-- 3. Kiến thức nền tảng - Timeline -->
+    <section id="timeline" class="section timeline-section">
+        <div class="section-header">
+            <span class="section-number">02</span>
+            <h2 class="section-title">Dòng thời gian Lịch sử Tài chính</h2>
+        </div>
+        <div class="container">
+            <p class="section-subtitle">Khám phá các sự kiện tài chính lớn đã định hình nền kinh tế thế giới</p>
+            
+            <div class="timeline-container">
+                <div class="timeline-item" data-year="1637">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">1637</div>
+                        <h3 class="timeline-event">Bong bóng hoa Tulip</h3>
+                        <p class="timeline-description">
+                            Bài học đầu tiên về đầu cơ và tâm lý thị trường. Giá hoa tulip tăng vọt rồi sụp đổ, 
+                            để lại bài học về sự nguy hiểm của đầu cơ không có cơ sở.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="1929">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">1929</div>
+                        <h3 class="timeline-event">Sụp đổ Phố Wall</h3>
+                        <p class="timeline-description">
+                            Mở đầu Đại Suy thoái và sự ra đời của các chính sách tài khóa – tiền tệ mới. 
+                            Thị trường chứng khoán Mỹ sụp đổ, dẫn đến cuộc khủng hoảng kinh tế toàn cầu.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="1971">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">1971</div>
+                        <h3 class="timeline-event">Hệ thống Bretton Woods sụp đổ</h3>
+                        <p class="timeline-description">
+                            Kết thúc bản vị vàng, USD trở thành tiền tệ dự trữ chính. 
+                            Tổng thống Nixon tuyên bố chấm dứt chuyển đổi USD sang vàng.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="1997">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">1997</div>
+                        <h3 class="timeline-event">Khủng hoảng tài chính châu Á</h3>
+                        <p class="timeline-description">
+                            Tác động của dòng vốn nóng và chính sách tỷ giá cố định. 
+                            Bắt đầu từ Thái Lan và lan rộng khắp châu Á.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="2000">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2000</div>
+                        <h3 class="timeline-event">Bong bóng Dot-com</h3>
+                        <p class="timeline-description">
+                            Sự bùng nổ – sụp đổ của cổ phiếu công nghệ. 
+                            Nhiều công ty internet mất giá trị hàng tỷ USD trong thời gian ngắn.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="2008">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2008</div>
+                        <h3 class="timeline-event">Khủng hoảng tài chính toàn cầu</h3>
+                        <p class="timeline-description">
+                            Cuộc khủng hoảng dưới chuẩn và khái niệm "Too Big to Fail". 
+                            Lehman Brothers phá sản, gây ra cuộc khủng hoảng tài chính lớn nhất kể từ 1929.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="2010">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2010+</div>
+                        <h3 class="timeline-event">Sự trỗi dậy của tiền điện tử</h3>
+                        <p class="timeline-description">
+                            Bitcoin và blockchain – chương mới của tài chính. 
+                            Tiền điện tử thách thức hệ thống tài chính truyền thống và mở ra kỷ nguyên mới.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider">
+        <div class="divider-line"></div>
+        <div class="divider-number">03</div>
+        <div class="divider-line"></div>
+    </div>
+
+    <!-- 4. Trải nghiệm tương tác -->
+    <section id="interactive" class="section interactive-section">
+        <div class="section-header">
+            <span class="section-number">03</span>
+            <h2 class="section-title">Trải nghiệm Tương tác</h2>
+        </div>
+        <div class="container">
+            <p class="section-subtitle">Nhấp vào các mốc thời gian để xem chi tiết sự kiện</p>
+            
+            <div class="interactive-timeline">
+                <div class="timeline-line"></div>
+                
+                <div class="interactive-item" data-event="tulip">
+                    <div class="interactive-year">1637</div>
+                    <div class="interactive-dot"></div>
+                    <div class="interactive-label">Bong bóng Tulip</div>
+                </div>
+
+                <div class="interactive-item" data-event="wallstreet">
+                    <div class="interactive-year">1929</div>
+                    <div class="interactive-dot"></div>
+                    <div class="interactive-label">Sụp đổ Phố Wall</div>
+                </div>
+
+                <div class="interactive-item" data-event="bretton">
+                    <div class="interactive-year">1971</div>
+                    <div class="interactive-dot"></div>
+                    <div class="interactive-label">Bretton Woods</div>
+                </div>
+
+                <div class="interactive-item" data-event="asia">
+                    <div class="interactive-year">1997</div>
+                    <div class="interactive-dot"></div>
+                    <div class="interactive-label">Khủng hoảng châu Á</div>
+                </div>
+
+                <div class="interactive-item" data-event="dotcom">
+                    <div class="interactive-year">2000</div>
+                    <div class="interactive-dot"></div>
+                    <div class="interactive-label">Bong bóng Dot-com</div>
+                </div>
+
+                <div class="interactive-item" data-event="crisis">
+                    <div class="interactive-year">2008</div>
+                    <div class="interactive-dot"></div>
+                    <div class="interactive-label">Khủng hoảng toàn cầu</div>
+                </div>
+
+                <div class="interactive-item" data-event="crypto">
+                    <div class="interactive-year">2010+</div>
+                    <div class="interactive-dot"></div>
+                    <div class="interactive-label">Tiền điện tử</div>
+                </div>
+            </div>
+
+            <!-- Modal/Popup for event details -->
+            <div id="eventModal" class="modal">
+                <div class="modal-content">
+                    <span class="modal-close">&times;</span>
+                    <div id="modalBody"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider">
+        <div class="divider-line"></div>
+        <div class="divider-number">04</div>
+        <div class="divider-line"></div>
+    </div>
+
+    <!-- 5. Bài học từ lịch sử -->
+    <section id="lessons" class="section lessons-section">
+        <div class="section-header">
+            <span class="section-number">04</span>
+            <h2 class="section-title">Bài học từ Lịch sử</h2>
+        </div>
+        <div class="container">
+            <p class="section-subtitle">Liên hệ giữa các sự kiện lịch sử và ứng dụng hiện tại</p>
+            
+            <div class="lessons-grid">
+                <div class="lesson-card">
+                    <div class="lesson-header">
+                        <div class="lesson-year">1929</div>
+                        <h3>Sụp đổ Phố Wall</h3>
+                    </div>
+                    <div class="lesson-content">
+                        <h4>Bài học & Ứng dụng hiện nay:</h4>
+                        <p>
+                            Dẫn đến sự ra đời của <strong>Ủy ban Chứng khoán Mỹ (SEC)</strong> → tăng tính minh bạch thị trường.
                         </p>
                         <p>
-                            Theo học thuyết của Karl Marx, giá trị thặng dư được tạo ra trong quá trình sản xuất khi người lao động 
-                            làm việc vượt quá thời gian cần thiết để tái sản xuất giá trị sức lao động của chính họ. Phần giá trị này 
-                            được nhà tư bản chiếm hữu mà không phải trả công tương ứng, tạo nên nguồn gốc của lợi nhuận.
+                            Các quy định về báo cáo tài chính, kiểm toán độc lập, và bảo vệ nhà đầu tư nhỏ 
+                            đã trở thành tiêu chuẩn toàn cầu.
                         </p>
                     </div>
-
-                    <div class="diagram-container">
-                        <h3>Sơ đồ quá trình sản xuất</h3>
-                        <div class="production-diagram">
-                            <div class="diagram-step">
-                                <div class="step-icon">💰</div>
-                                <div class="step-label">Tư bản</div>
-                                <div class="step-arrow">→</div>
-                            </div>
-                            <div class="diagram-step">
-                                <div class="step-icon">👷</div>
-                                <div class="step-label">Lao động</div>
-                                <div class="step-arrow">→</div>
-                            </div>
-                            <div class="diagram-step">
-                                <div class="step-icon">📦</div>
-                                <div class="step-label">Hàng hóa</div>
-                                <div class="step-arrow">→</div>
-                            </div>
-                            <div class="diagram-step">
-                                <div class="step-icon">📈</div>
-                                <div class="step-label">Giá trị thặng dư</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="action-buttons">
-                        <button class="action-btn primary" onclick="navigateToPage('simulation')">Bắt đầu mô phỏng</button>
-                        <button class="action-btn secondary" onclick="navigateToPage('knowledge')">Khám phá thêm</button>
-                    </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Screen 2: Mô phỏng (Simulation) -->
-        <section id="simulation" class="page-section">
-            <div class="container">
-                <h2 class="page-title">Mô phỏng giá trị thặng dư</h2>
-                <div class="content-box">
-                    <p class="section-intro">
-                        Nhập các thông số bên dưới để tính toán và xem kết quả giá trị thặng dư một cách trực quan.
-                    </p>
-
-                    <div class="simulation-container">
-                        <div class="input-panel">
-                            <h3>Nhập thông số</h3>
-                            <form id="simulationForm" onsubmit="event.preventDefault(); calculateSurplusValue();">
-                                <div class="form-group">
-                                    <label for="workHours">Số giờ lao động / ngày:</label>
-                                    <input type="number" id="workHours" min="1" max="24" value="8" step="0.5" required>
-                                    <span class="input-hint">Thời gian công nhân làm việc trong ngày</span>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="necessaryTime">Thời gian lao động cần thiết (giờ):</label>
-                                    <input type="number" id="necessaryTime" min="0.1" max="24" value="4" step="0.1" required>
-                                    <span class="input-hint">Số giờ tái sản xuất sức lao động</span>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="productivity">Năng suất lao động (sản phẩm/giờ):</label>
-                                    <input type="number" id="productivity" min="0.1" value="10" step="0.1" required>
-                                    <span class="input-hint">Sản lượng tạo ra mỗi giờ</span>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="productValue">Giá trị mỗi sản phẩm (VNĐ):</label>
-                                    <input type="number" id="productValue" min="0" value="50000" step="1000" required>
-                                    <span class="input-hint">Giá trị hàng hóa</span>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="workers">Số lượng công nhân:</label>
-                                    <input type="number" id="workers" min="1" value="100" step="1" required>
-                                    <span class="input-hint">Tổng lao động</span>
-                                </div>
-
-                                <button type="submit" class="calculate-btn">Tính toán</button>
-                            </form>
-                        </div>
-
-                        <div class="result-panel">
-                            <h3>Kết quả</h3>
-                            <div id="simulationResults" class="results-display">
-                                <p class="placeholder">Nhập thông số và nhấn "Tính toán" để xem kết quả</p>
-                            </div>
-                            <div class="chart-container">
-                                <canvas id="surplusChart"></canvas>
-                            </div>
-                            <div class="chart-container">
-                                <canvas id="pieChart"></canvas>
-                            </div>
-                        </div>
+                <div class="lesson-card">
+                    <div class="lesson-header">
+                        <div class="lesson-year">2008</div>
+                        <h3>Khủng hoảng tài chính toàn cầu</h3>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Screen 3: Kiến thức (Knowledge) -->
-        <section id="knowledge" class="page-section">
-            <div class="container">
-                <h2 class="page-title">Kiến thức nền tảng</h2>
-                <div class="content-box">
-                    <div class="knowledge-grid">
-                        <div class="knowledge-card">
-                            <div class="card-icon">💎</div>
-                            <h3>Giá trị, giá trị sử dụng, giá trị trao đổi</h3>
-                            <div class="card-content">
-                                <p><strong>Giá trị sử dụng:</strong> Là tính hữu ích của hàng hóa, khả năng thỏa mãn nhu cầu của con người.</p>
-                                <p><strong>Giá trị trao đổi:</strong> Là tỷ lệ trao đổi giữa các hàng hóa khác nhau trên thị trường.</p>
-                                <p><strong>Giá trị:</strong> Là lao động xã hội cần thiết được kết tinh trong hàng hóa, là cơ sở của giá trị trao đổi.</p>
-                            </div>
-                        </div>
-
-                        <div class="knowledge-card">
-                            <div class="card-icon">⚙️</div>
-                            <h3>Lao động trừu tượng</h3>
-                            <div class="card-content">
-                                <p>Lao động trừu tượng là lao động được xem xét một cách trừu tượng, bỏ qua mọi hình thức cụ thể, 
-                                chỉ còn lại tính chất chung là hao phí sức lao động của con người.</p>
-                                <p>Đây là nguồn gốc tạo ra giá trị của hàng hóa. Lao động trừu tượng là cơ sở để so sánh và trao đổi 
-                                các hàng hóa khác nhau.</p>
-                            </div>
-                        </div>
-
-                        <div class="knowledge-card">
-                            <div class="card-icon">📊</div>
-                            <h3>Giá trị thặng dư tuyệt đối</h3>
-                            <div class="card-content">
-                                <p>Giá trị thặng dư tuyệt đối được tạo ra bằng cách kéo dài thời gian lao động vượt quá thời gian 
-                                lao động cần thiết, trong khi năng suất lao động và giá trị sức lao động không thay đổi.</p>
-                                <p><strong>Công thức:</strong> m = (t - t₀) × n × p</p>
-                                <p>Trong đó: t là thời gian lao động, t₀ là thời gian cần thiết, n là năng suất, p là giá trị sản phẩm.</p>
-                            </div>
-                        </div>
-
-                        <div class="knowledge-card">
-                            <div class="card-icon">📈</div>
-                            <h3>Giá trị thặng dư tương đối</h3>
-                            <div class="card-content">
-                                <p>Giá trị thặng dư tương đối được tạo ra bằng cách rút ngắn thời gian lao động cần thiết thông qua 
-                                tăng năng suất lao động, trong khi thời gian lao động tổng thể không thay đổi.</p>
-                                <p>Phương pháp này được thực hiện thông qua cải tiến kỹ thuật, áp dụng công nghệ mới, và tổ chức lao động 
-                                hiệu quả hơn.</p>
-                            </div>
-                        </div>
-
-                        <div class="knowledge-card">
-                            <div class="card-icon">🔢</div>
-                            <h3>Tỷ suất giá trị thặng dư</h3>
-                            <div class="card-content">
-                                <p>Tỷ suất giá trị thặng dư (m') phản ánh mức độ bóc lột lao động:</p>
-                                <p class="formula">m' = (m / v) × 100%</p>
-                                <p>Trong đó:</p>
-                                <ul>
-                                    <li><strong>m</strong> = Giá trị thặng dư</li>
-                                    <li><strong>v</strong> = Giá trị sức lao động (tiền công)</li>
-                                </ul>
-                                <p>Tỷ suất này càng cao, mức độ bóc lột càng lớn.</p>
-                            </div>
-                        </div>
-
-                        <div class="knowledge-card">
-                            <div class="card-icon">🏭</div>
-                            <h3>Quá trình sản xuất giá trị thặng dư</h3>
-                            <div class="card-content">
-                                <p>Quá trình sản xuất giá trị thặng dư diễn ra qua các giai đoạn:</p>
-                                <ol>
-                                    <li>Nhà tư bản mua sức lao động và tư liệu sản xuất</li>
-                                    <li>Người lao động sử dụng tư liệu sản xuất để tạo ra hàng hóa</li>
-                                    <li>Hàng hóa được bán trên thị trường</li>
-                                    <li>Nhà tư bản thu được giá trị thặng dư</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Screen 4: Ứng dụng thực tế (Modern Economy) -->
-        <section id="modern" class="page-section">
-            <div class="container">
-                <h2 class="page-title">Ứng dụng thực tế trong nền kinh tế hiện đại</h2>
-                <div class="content-box">
-                    <div class="modern-content">
-                        <h3>Giá trị thặng dư trong nền kinh tế số</h3>
+                    <div class="lesson-content">
+                        <h4>Bài học & Ứng dụng hiện nay:</h4>
                         <p>
-                            Trong bối cảnh nền kinh tế số hiện đại, giá trị thặng dư vẫn là động lực cốt lõi, nhưng được tạo ra 
-                            thông qua các hình thức mới: dữ liệu, trí tuệ nhân tạo, nền tảng số, và lao động số.
+                            Thúc đẩy các quy định như <strong>Dodd-Frank Act</strong> → kiểm soát rủi ro "Too Big to Fail".
                         </p>
-
-                        <div class="modern-examples">
-                            <div class="example-card">
-                                <div class="example-header">
-                                    <span class="example-icon">🚗</span>
-                                    <h4>Grab - Nền tảng gọi xe</h4>
-                                </div>
-                                <div class="example-content">
-                                    <p><strong>Mô hình:</strong> Grab không sở hữu xe, nhưng thu được giá trị thặng dư từ:</p>
-                                    <ul>
-                                        <li>Phí hoa hồng từ mỗi chuyến xe (20-30%)</li>
-                                        <li>Dữ liệu người dùng và hành vi</li>
-                                        <li>Lao động của tài xế (làm việc nhiều giờ, thu nhập không ổn định)</li>
-                                    </ul>
-                                    <p><strong>Giá trị thặng dư:</strong> Phần chênh lệch giữa giá trị do tài xế tạo ra và phần 
-                                    Grab trả cho họ (phí hoa hồng + dữ liệu).</p>
-                                </div>
-                            </div>
-
-                            <div class="example-card">
-                                <div class="example-header">
-                                    <span class="example-icon">🛒</span>
-                                    <h4>Shopee, Amazon - Thương mại điện tử</h4>
-                                </div>
-                                <div class="example-content">
-                                    <p><strong>Mô hình:</strong> Tạo giá trị thặng dư từ:</p>
-                                    <ul>
-                                        <li>Phí hoa hồng từ người bán (5-15%)</li>
-                                        <li>Phí quảng cáo và tiếp thị</li>
-                                        <li>Dữ liệu khách hàng và hành vi mua sắm</li>
-                                        <li>Lao động của nhân viên kho, giao hàng</li>
-                                    </ul>
-                                    <p><strong>Đặc điểm:</strong> Quy mô lớn, tự động hóa cao, tạo ra giá trị thặng dư khổng lồ 
-                                    từ việc kết nối người mua và người bán.</p>
-                                </div>
-                            </div>
-
-                            <div class="example-card">
-                                <div class="example-header">
-                                    <span class="example-icon">🤖</span>
-                                    <h4>AI và Dữ liệu - Nguồn giá trị mới</h4>
-                                </div>
-                                <div class="example-content">
-                                    <p><strong>Mô hình:</strong> Giá trị thặng dư được tạo ra từ:</p>
-                                    <ul>
-                                        <li>Dữ liệu người dùng (miễn phí) được chuyển thành giá trị</li>
-                                        <li>Lao động số (content creators, moderators) được trả thấp</li>
-                                        <li>Thuật toán AI thay thế lao động, tăng năng suất</li>
-                                    </ul>
-                                    <p><strong>Ví dụ:</strong> Facebook, Google thu lợi nhuận khổng lồ từ dữ liệu người dùng 
-                                    mà họ cung cấp miễn phí.</p>
-                                </div>
-                            </div>
-
-                            <div class="example-card">
-                                <div class="example-header">
-                                    <span class="example-icon">💻</span>
-                                    <h4>Startup và Nền tảng số</h4>
-                                </div>
-                                <div class="example-content">
-                                    <p><strong>Mô hình:</strong> Tạo giá trị thặng dư thông qua:</p>
-                                    <ul>
-                                        <li>Mô hình "gig economy" - lao động tự do, không ổn định</li>
-                                        <li>Lao động từ xa với chi phí thấp</li>
-                                        <li>Mạng lưới người dùng tạo nội dung miễn phí</li>
-                                    </ul>
-                                    <p><strong>Ví dụ:</strong> Uber, Airbnb, YouTube - người dùng tạo giá trị nhưng chỉ nhận 
-                                    được phần nhỏ, phần lớn thuộc về nền tảng.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="impact-section">
-                            <h3>Tác động đến thu nhập và bất bình đẳng</h3>
-                            <div class="impact-grid">
-                                <div class="impact-item">
-                                    <h4>📉 Thu nhập không ổn định</h4>
-                                    <p>Lao động trong nền kinh tế số thường có thu nhập không ổn định, không có bảo hiểm, 
-                                    phụ thuộc vào nền tảng.</p>
-                                </div>
-                                <div class="impact-item">
-                                    <h4>💰 Tập trung tài sản</h4>
-                                    <p>Giá trị thặng dư tập trung vào một số ít công ty công nghệ lớn, làm gia tăng bất bình đẳng.</p>
-                                </div>
-                                <div class="impact-item">
-                                    <h4>🌍 Toàn cầu hóa lao động</h4>
-                                    <p>Lao động có thể được thuê từ bất kỳ đâu trên thế giới với chi phí thấp, tạo ra giá trị 
-                                    thặng dư lớn hơn.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="solution-section">
-                            <h3>Gợi ý giải pháp phát triển bền vững</h3>
-                            <div class="solutions-list">
-                                <div class="solution-item">
-                                    <span class="solution-icon">✅</span>
-                                    <div>
-                                        <h4>Bảo vệ quyền lao động</h4>
-                                        <p>Đảm bảo lao động trong nền kinh tế số có quyền lợi, bảo hiểm, và thu nhập ổn định.</p>
-                                    </div>
-                                </div>
-                                <div class="solution-item">
-                                    <span class="solution-icon">✅</span>
-                                    <div>
-                                        <h4>Phân phối công bằng</h4>
-                                        <p>Điều tiết để giá trị thặng dư được phân phối công bằng hơn, giảm bất bình đẳng.</p>
-                                    </div>
-                                </div>
-                                <div class="solution-item">
-                                    <span class="solution-icon">✅</span>
-                                    <div>
-                                        <h4>Phát triển bền vững</h4>
-                                        <p>Kết hợp tăng trưởng kinh tế với phát triển xã hội, bảo vệ môi trường.</p>
-                                    </div>
-                                </div>
-                                <div class="solution-item">
-                                    <span class="solution-icon">✅</span>
-                                    <div>
-                                        <h4>Giáo dục và đào tạo</h4>
-                                        <p>Nâng cao kỹ năng cho người lao động để thích ứng với nền kinh tế số.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Screen 5: Giới thiệu (About) -->
-        <section id="about" class="page-section">
-            <div class="container">
-                <h2 class="page-title">Giới thiệu</h2>
-                <div class="content-box">
-                    <div class="about-content">
-                        <h3>Về dự án</h3>
                         <p>
-                            <strong>"Giá trị thặng dư 4.0"</strong> là một website học tập tương tác được thiết kế để giúp sinh viên 
-                            và giảng viên hiểu rõ hơn về khái niệm giá trị thặng dư trong học thuyết kinh tế chính trị Mác – Lênin, 
-                            đặc biệt trong bối cảnh nền kinh tế hiện đại và số hóa.
+                            Các ngân hàng phải duy trì tỷ lệ vốn cao hơn, stress testing thường xuyên, 
+                            và quản lý rủi ro chặt chẽ hơn.
                         </p>
+                    </div>
+                </div>
 
-                        <h3>Mục tiêu</h3>
-                        <ul class="goals-list">
-                            <li>Giúp người học hiểu sâu về giá trị thặng dư thông qua mô phỏng trực quan</li>
-                            <li>Cung cấp kiến thức nền tảng về học thuyết Mác – Lênin</li>
-                            <li>Liên hệ lý thuyết với thực tiễn nền kinh tế hiện đại</li>
-                            <li>Tạo công cụ giảng dạy sinh động, dễ sử dụng</li>
-                        </ul>
+                <div class="lesson-card">
+                    <div class="lesson-header">
+                        <div class="lesson-year">2000</div>
+                        <h3>Bong bóng Dot-com</h3>
+                    </div>
+                    <div class="lesson-content">
+                        <h4>Bài học & Ứng dụng hiện nay:</h4>
+                        <p>
+                            Bài học cho các nhà đầu tư công nghệ hiện nay (AI, startup, crypto).
+                        </p>
+                        <p>
+                            Nhấn mạnh tầm quan trọng của định giá hợp lý, phân tích cơ bản, 
+                            và không đầu tư theo cảm xúc hay FOMO (Fear of Missing Out).
+                        </p>
+                    </div>
+                </div>
 
-                        <h3>Tính năng</h3>
-                        <div class="features-grid">
-                            <div class="feature-item">
-                                <span class="feature-icon">🎯</span>
-                                <h4>Mô phỏng tương tác</h4>
-                                <p>Tính toán giá trị thặng dư với các thông số tùy chỉnh</p>
-                            </div>
-                            <div class="feature-item">
-                                <span class="feature-icon">📊</span>
-                                <h4>Biểu đồ trực quan</h4>
-                                <p>Hiển thị kết quả bằng biểu đồ cột và tròn</p>
-                            </div>
-                            <div class="feature-item">
-                                <span class="feature-icon">📚</span>
-                                <h4>Kiến thức nền tảng</h4>
-                                <p>Tổng hợp các khái niệm cơ bản về giá trị thặng dư</p>
-                            </div>
-                            <div class="feature-item">
-                                <span class="feature-icon">🌐</span>
-                                <h4>Ứng dụng thực tế</h4>
-                                <p>Liên hệ với các ví dụ trong nền kinh tế số</p>
-                            </div>
-                        </div>
+                <div class="lesson-card">
+                    <div class="lesson-header">
+                        <div class="lesson-year">1997</div>
+                        <h3>Khủng hoảng tài chính châu Á</h3>
+                    </div>
+                    <div class="lesson-content">
+                        <h4>Bài học & Ứng dụng hiện nay:</h4>
+                        <p>
+                            Tầm quan trọng của quản lý dòng vốn nóng và chính sách tỷ giá linh hoạt.
+                        </p>
+                        <p>
+                            Các quốc gia học cách xây dựng dự trữ ngoại hối, quản lý nợ nước ngoài, 
+                            và tăng cường giám sát ngân hàng.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="lesson-card">
+                    <div class="lesson-header">
+                        <div class="lesson-year">2010+</div>
+                        <h3>Sự trỗi dậy của tiền điện tử</h3>
+                    </div>
+                    <div class="lesson-content">
+                        <h4>Bài học & Ứng dụng hiện nay:</h4>
+                        <p>
+                            Blockchain và DeFi (Decentralized Finance) thách thức hệ thống tài chính truyền thống.
+                        </p>
+                        <p>
+                            Các ngân hàng trung ương đang nghiên cứu CBDC (Central Bank Digital Currency) 
+                            và các quy định mới cho tài sản số.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="lesson-card">
+                    <div class="lesson-header">
+                        <div class="lesson-year">1637</div>
+                        <h3>Bong bóng hoa Tulip</h3>
+                    </div>
+                    <div class="lesson-content">
+                        <h4>Bài học & Ứng dụng hiện nay:</h4>
+                        <p>
+                            Bài học về tâm lý thị trường và đầu cơ không có cơ sở.
+                        </p>
+                        <p>
+                            Vẫn còn giá trị trong việc hiểu về FOMO, bong bóng tài sản, 
+                            và tầm quan trọng của phân tích cơ bản thay vì chỉ dựa vào xu hướng.
+                        </p>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider">
+        <div class="divider-line"></div>
+        <div class="divider-number">05</div>
+        <div class="divider-line"></div>
+    </div>
+
+    <!-- 6. Phản hồi người dùng -->
+    <section id="feedback" class="section feedback-section">
+        <div class="section-header">
+            <span class="section-number">05</span>
+            <h2 class="section-title">Phản hồi Người dùng</h2>
+        </div>
+        <div class="container">
+            <div class="feedback-content">
+                <div class="testimonials">
+                    <div class="testimonial-card">
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">
+                            Dòng thời gian rất dễ hiểu, giúp mình nhớ nhanh các sự kiện lớn. 
+                            Cách trình bày trực quan làm cho lịch sử tài chính không còn khô khan nữa.
+                        </p>
+                        <p class="testimonial-author">— Sinh viên Kinh tế</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">
+                            Phần trải nghiệm tương tác rất thú vị! Mình có thể click vào từng sự kiện 
+                            để xem chi tiết, điều này giúp học tập hiệu quả hơn nhiều so với đọc sách.
+                        </p>
+                        <p class="testimonial-author">— Sinh viên Tài chính</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="quote-icon">"</div>
+                        <p class="testimonial-text">
+                            Bài học từ lịch sử rất hữu ích, giúp mình hiểu được mối liên hệ giữa quá khứ 
+                            và hiện tại. Website này là công cụ học tập tuyệt vời!
+                        </p>
+                        <p class="testimonial-author">— Sinh viên Ngân hàng</p>
+                    </div>
+                </div>
+                
+                <div class="feedback-form-container">
+                    <h3>Gửi phản hồi của bạn</h3>
+                    <form class="feedback-form" id="feedbackForm">
+                        <div class="form-group">
+                            <label for="name">Họ và tên:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Phản hồi:</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Gửi phản hồi</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Thông tin nhóm</h4>
-                    <p>Nhóm thực hiện: Group10</p>
-                    <p>Lớp: SE1841</p>
-                    <p>Môn học: Kinh tế chính trị Mác – Lênin</p>
+                    <h4>Về Website</h4>
+                    <p>Website học tập tương tác về Lịch sử Tài chính Toàn cầu, giúp người học hiểu rõ các sự kiện tài chính lớn trong lịch sử.</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Nguồn tham khảo</h4>
-                    <ul class="footer-links">
-                        <li>Giáo trình Kinh tế chính trị Mác – Lênin</li>
-                        <li>Tư bản - Karl Marx</li>
-                        <li>Các bài viết học thuật về giá trị thặng dư</li>
-                        <li>Tài liệu về nền kinh tế số và chủ nghĩa tư bản nền tảng</li>
+                    <h4>Môn học liên quan</h4>
+                    <ul>
+                        <li>Kinh tế học</li>
+                        <li>Lịch sử tài chính</li>
+                        <li>Tài chính quốc tế</li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Liên hệ / Góp ý</h4>
+                    <h4>Liên hệ</h4>
                     <p>Email: sonmthe170091@fpt.edu.vn</p>
-                    <p>Website: Giá trị thặng dư 4.0</p>
+                    <p>Nhóm: Group10 - Lớp: SE1841</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 - Giá trị thặng dư 4.0. Tất cả quyền được bảo lưu.</p>
+                <p>© 2025 - Lịch sử Tài chính Toàn cầu. Tất cả quyền được bảo lưu.</p>
             </div>
         </div>
     </footer>

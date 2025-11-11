@@ -1,378 +1,267 @@
-// Biến toàn cục cho biểu đồ
-let surplusChart = null;
-let pieChart = null;
-
-// Khởi tạo khi trang được tải
-document.addEventListener('DOMContentLoaded', function() {
-    // Thiết lập navigation
-    setupNavigation();
-    
-    // Thiết lập mobile menu
-    setupMobileMenu();
-    
-    // Hiển thị trang mặc định (home) hoặc trang từ hash
-    const hash = window.location.hash.substring(1);
-    if (hash && ['home', 'simulation', 'knowledge', 'modern', 'about'].includes(hash)) {
-        showPage(hash);
-    } else {
-        showPage('home');
+// Event data for interactive timeline
+const eventData = {
+    tulip: {
+        year: '1637',
+        title: 'Bong bóng hoa Tulip',
+        description: 'Bong bóng hoa Tulip (Tulip Mania) là một trong những ví dụ đầu tiên về bong bóng đầu cơ trong lịch sử tài chính. Vào thế kỷ 17 tại Hà Lan, giá hoa tulip tăng vọt đến mức một củ tulip có thể đổi được một ngôi nhà. Tuy nhiên, bong bóng này nhanh chóng vỡ, khiến nhiều nhà đầu tư mất trắng.',
+        lesson: 'Bài học về tâm lý thị trường và đầu cơ không có cơ sở. Sự kiện này cho thấy giá cả có thể tách rời hoàn toàn khỏi giá trị thực tế khi tâm lý đám đông chi phối thị trường.'
+    },
+    wallstreet: {
+        year: '1929',
+        title: 'Sụp đổ Phố Wall',
+        description: 'Ngày 24 tháng 10 năm 1929, thị trường chứng khoán Mỹ sụp đổ, mở đầu cho cuộc Đại Suy thoái (Great Depression) kéo dài đến những năm 1930. Chỉ số Dow Jones giảm gần 90% từ đỉnh, hàng triệu người mất việc làm, và nền kinh tế toàn cầu rơi vào khủng hoảng sâu sắc.',
+        lesson: 'Dẫn đến sự ra đời của Ủy ban Chứng khoán Mỹ (SEC) và các quy định tài chính mới. Bài học về tầm quan trọng của giám sát thị trường, minh bạch thông tin, và bảo vệ nhà đầu tư nhỏ.'
+    },
+    bretton: {
+        year: '1971',
+        title: 'Hệ thống Bretton Woods sụp đổ',
+        description: 'Tổng thống Mỹ Richard Nixon tuyên bố chấm dứt chuyển đổi USD sang vàng, kết thúc hệ thống Bretton Woods được thiết lập sau Thế chiến II. Điều này chấm dứt bản vị vàng và đưa USD trở thành tiền tệ dự trữ chính của thế giới với tỷ giá thả nổi.',
+        lesson: 'Mở ra kỷ nguyên của tiền tệ fiat và tỷ giá thả nổi. Bài học về sự linh hoạt cần thiết trong chính sách tiền tệ và tác động của quyết định tài chính quốc gia đến nền kinh tế toàn cầu.'
+    },
+    asia: {
+        year: '1997',
+        title: 'Khủng hoảng tài chính châu Á',
+        description: 'Bắt đầu từ Thái Lan với việc phá giá đồng baht, khủng hoảng nhanh chóng lan rộng sang các nước châu Á khác như Indonesia, Hàn Quốc, Malaysia. Nguyên nhân chính là dòng vốn nóng (hot money), chính sách tỷ giá cố định không bền vững, và nợ nước ngoài quá lớn.',
+        lesson: 'Tầm quan trọng của quản lý dòng vốn nóng, chính sách tỷ giá linh hoạt, và xây dựng dự trữ ngoại hối. Các quốc gia học cách tăng cường giám sát ngân hàng và quản lý nợ nước ngoài hiệu quả hơn.'
+    },
+    dotcom: {
+        year: '2000',
+        title: 'Bong bóng Dot-com',
+        description: 'Sự bùng nổ của các công ty internet trong những năm 1990 dẫn đến bong bóng đầu cơ lớn. Nhiều công ty công nghệ được định giá hàng tỷ USD dù chưa có lợi nhuận. Khi bong bóng vỡ vào năm 2000, hàng nghìn công ty phá sản, và thị trường chứng khoán công nghệ mất hàng nghìn tỷ USD giá trị.',
+        lesson: 'Bài học về định giá hợp lý và phân tích cơ bản. Nhấn mạnh tầm quan trọng của việc đánh giá giá trị thực tế của công ty thay vì chỉ dựa vào xu hướng và hype. Vẫn còn giá trị cho các nhà đầu tư công nghệ hiện nay (AI, startup, crypto).'
+    },
+    crisis: {
+        year: '2008',
+        title: 'Khủng hoảng tài chính toàn cầu',
+        description: 'Cuộc khủng hoảng tài chính lớn nhất kể từ 1929, bắt đầu từ thị trường nhà đất dưới chuẩn (subprime) ở Mỹ. Ngân hàng Lehman Brothers phá sản, gây ra hiệu ứng domino trên toàn cầu. Hàng triệu người mất nhà, các ngân hàng lớn phải được cứu trợ, và nền kinh tế toàn cầu rơi vào suy thoái.',
+        lesson: 'Thúc đẩy các quy định như Dodd-Frank Act để kiểm soát rủi ro "Too Big to Fail". Các ngân hàng phải duy trì tỷ lệ vốn cao hơn, thực hiện stress testing thường xuyên, và quản lý rủi ro chặt chẽ hơn. Bài học về tầm quan trọng của giám sát và quản lý rủi ro hệ thống.'
+    },
+    crypto: {
+        year: '2010+',
+        title: 'Sự trỗi dậy của tiền điện tử',
+        description: 'Bitcoin, được tạo ra vào năm 2009, đã mở ra một chương mới trong lịch sử tài chính. Blockchain và công nghệ phân tán thách thức hệ thống tài chính truyền thống. Tiền điện tử, DeFi (Decentralized Finance), và NFT đã tạo ra các hình thức đầu tư và giao dịch hoàn toàn mới.',
+        lesson: 'Blockchain và DeFi thách thức hệ thống tài chính truyền thống. Các ngân hàng trung ương đang nghiên cứu CBDC (Central Bank Digital Currency) và các quy định mới cho tài sản số. Bài học về sự đổi mới công nghệ và tầm quan trọng của việc thích ứng với thay đổi.'
     }
-    
-    // Tính toán với giá trị mặc định nếu đang ở trang simulation
-    setTimeout(() => {
-        if (document.getElementById('simulation') && document.getElementById('simulation').classList.contains('active')) {
-            calculateSurplusValue();
-        }
-    }, 200);
+};
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initNavigation();
+    initMobileMenu();
+    initInteractiveTimeline();
+    initScrollAnimations();
+    initFeedbackForm();
 });
 
-// Thiết lập navigation
-function setupNavigation() {
+// Navigation smooth scroll
+function initNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
+    
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            const page = this.getAttribute('data-page');
-            navigateToPage(page);
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                const offsetTop = targetSection.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+                
+                // Update active nav link
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            }
         });
+    });
+
+    // Update active nav on scroll
+    window.addEventListener('scroll', updateActiveNav);
+}
+
+function updateActiveNav() {
+    const sections = document.querySelectorAll('.section, .hero-section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.clientHeight;
+        if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
     });
 }
 
-// Thiết lập mobile menu
-function setupMobileMenu() {
-    const mobileToggle = document.getElementById('mobileMenuToggle');
-    const navMenu = document.querySelector('.nav-menu');
+// Mobile menu toggle
+function initMobileMenu() {
+    const toggle = document.getElementById('mobileMenuToggle');
+    const menu = document.querySelector('.nav-menu');
     
-    if (mobileToggle) {
-        mobileToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
+    if (toggle) {
+        toggle.addEventListener('click', function() {
+            menu.classList.toggle('active');
         });
     }
-    
-    // Đóng menu khi click vào link
+
+    // Close menu when clicking on a link
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
-            navMenu.classList.remove('active');
+            menu.classList.remove('active');
         });
     });
 }
 
-// Điều hướng đến trang
-function navigateToPage(pageName) {
-    // Ẩn tất cả các trang
-    const pages = document.querySelectorAll('.page-section');
-    pages.forEach(page => {
-        page.classList.remove('active');
-    });
-    
-    // Hiển thị trang được chọn
-    const targetPage = document.getElementById(pageName);
-    if (targetPage) {
-        targetPage.classList.add('active');
-        
-        // Scroll to top
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        
-        // Ẩn banner nếu không phải trang chủ
-        const banner = document.getElementById('banner');
-        if (pageName === 'home') {
-            if (banner) {
-                banner.style.display = 'flex';
-                document.body.style.paddingTop = '80px';
-            }
-        } else {
-            if (banner) {
-                banner.style.display = 'none';
-            }
-            // Điều chỉnh padding-top của body
-            document.body.style.paddingTop = '80px';
-        }
-        
-        // Cập nhật active state cho menu
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('data-page') === pageName) {
-                link.classList.add('active');
+// Interactive timeline
+function initInteractiveTimeline() {
+    const interactiveItems = document.querySelectorAll('.interactive-item');
+    const modal = document.getElementById('eventModal');
+    const modalBody = document.getElementById('modalBody');
+    const closeBtn = document.querySelector('.modal-close');
+
+    interactiveItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const eventKey = this.getAttribute('data-event');
+            const event = eventData[eventKey];
+            
+            if (event) {
+                showEventModal(event);
             }
         });
-        
-        // Tính toán lại nếu là trang simulation
-        if (pageName === 'simulation') {
-            setTimeout(() => {
-                calculateSurplusValue();
-            }, 100);
-        }
-    }
-    
-    // Cập nhật URL hash
-    window.location.hash = pageName;
-}
-
-// Hiển thị trang
-function showPage(pageName) {
-    navigateToPage(pageName);
-}
-
-// Xử lý hash change
-window.addEventListener('hashchange', function() {
-    const hash = window.location.hash.substring(1);
-    if (hash) {
-        navigateToPage(hash);
-    }
-});
-
-// Xử lý hash ban đầu
-if (window.location.hash) {
-    const hash = window.location.hash.substring(1);
-    navigateToPage(hash);
-}
-
-// Hàm tính toán giá trị thặng dư
-function calculateSurplusValue() {
-    // Lấy giá trị từ các input
-    const workHours = parseFloat(document.getElementById('workHours').value) || 0;
-    const necessaryTime = parseFloat(document.getElementById('necessaryTime').value) || 0;
-    const productivity = parseFloat(document.getElementById('productivity').value) || 0;
-    const productValue = parseFloat(document.getElementById('productValue').value) || 0;
-    const workers = parseFloat(document.getElementById('workers').value) || 0;
-
-    // Kiểm tra giá trị hợp lệ
-    if (workHours <= 0 || necessaryTime <= 0 || productivity <= 0 || productValue <= 0 || workers <= 0) {
-        alert('Vui lòng nhập các giá trị hợp lệ (lớn hơn 0)');
-        return;
-    }
-
-    if (necessaryTime >= workHours) {
-        alert('Thời gian lao động cần thiết phải nhỏ hơn số giờ lao động trong ngày');
-        return;
-    }
-
-    // Tính toán các giá trị
-    // Thời gian lao động thặng dư
-    const surplusTime = workHours - necessaryTime;
-
-    // Tổng sản phẩm tạo ra = số công nhân × số giờ × năng suất
-    const totalProducts = workers * workHours * productivity;
-
-    // Tổng giá trị tạo ra = tổng sản phẩm × giá trị mỗi sản phẩm
-    const totalValue = totalProducts * productValue;
-
-    // Giá trị sức lao động (v) = số công nhân × thời gian cần thiết × năng suất × giá trị sản phẩm
-    // Đây là phần giá trị tương đương với tiền công
-    const laborPowerValue = workers * necessaryTime * productivity * productValue;
-
-    // Giá trị thặng dư (m) = số công nhân × thời gian thặng dư × năng suất × giá trị sản phẩm
-    const surplusValue = workers * surplusTime * productivity * productValue;
-
-    // Tỷ suất giá trị thặng dư m' = (m / v) × 100%
-    const surplusRate = laborPowerValue > 0 ? (surplusValue / laborPowerValue) * 100 : 0;
-
-    // Hiển thị kết quả
-    displayResults({
-        workHours: workHours,
-        necessaryTime: necessaryTime,
-        surplusTime: surplusTime,
-        productivity: productivity,
-        productValue: productValue,
-        workers: workers,
-        totalProducts: totalProducts,
-        totalValue: totalValue,
-        laborPowerValue: laborPowerValue,
-        surplusValue: surplusValue,
-        surplusRate: surplusRate
     });
 
-    // Vẽ biểu đồ
-    drawCharts(laborPowerValue, surplusValue, totalValue);
+    // Close modal
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+    }
+
+    // Close modal when clicking outside
+    window.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'block') {
+            modal.style.display = 'none';
+        }
+    });
 }
 
-// Hàm hiển thị kết quả
-function displayResults(data) {
-    const resultsDiv = document.getElementById('simulationResults');
+function showEventModal(event) {
+    const modal = document.getElementById('eventModal');
+    const modalBody = document.getElementById('modalBody');
     
-    // Format số với dấu phẩy ngăn cách hàng nghìn
-    const formatNumber = (num) => {
-        return new Intl.NumberFormat('vi-VN').format(Math.round(num));
-    };
-
-    const formatCurrency = (num) => {
-        return formatNumber(num) + ' VNĐ';
-    };
-
-    resultsDiv.innerHTML = `
-        <div class="result-item primary">
-            <div>Giá trị thặng dư (m): <span>${formatCurrency(data.surplusValue)}</span></div>
-        </div>
-        <div class="result-item secondary">
-            <span class="result-label">Tổng giá trị tạo ra:</span>
-            <span>${formatCurrency(data.totalValue)}</span>
-        </div>
-        <div class="result-item info">
-            <span class="result-label">Giá trị sức lao động (v):</span>
-            <span>${formatCurrency(data.laborPowerValue)}</span>
-        </div>
-        <div class="result-item secondary">
-            <span class="result-label">Tỷ suất giá trị thặng dư (m'):</span>
-            <span>${data.surplusRate.toFixed(2)}%</span>
-        </div>
-        <div class="result-item info">
-            <span class="result-label">Thời gian lao động cần thiết:</span>
-            <span>${data.necessaryTime.toFixed(1)} giờ</span>
-        </div>
-        <div class="result-item info">
-            <span class="result-label">Thời gian lao động thặng dư:</span>
-            <span>${data.surplusTime.toFixed(1)} giờ</span>
-        </div>
-        <div class="result-item info">
-            <span class="result-label">Tổng sản phẩm tạo ra:</span>
-            <span>${formatNumber(data.totalProducts)} sản phẩm</span>
+    modalBody.innerHTML = `
+        <div class="event-detail">
+            <div class="event-detail-year">${event.year}</div>
+            <h2 class="event-detail-title">${event.title}</h2>
+            <div class="event-detail-description">
+                ${event.description}
+            </div>
+            <div class="event-detail-lesson">
+                <h4>📚 Bài học rút ra:</h4>
+                <p>${event.lesson}</p>
+            </div>
         </div>
     `;
+    
+    modal.style.display = 'block';
 }
 
-// Hàm vẽ biểu đồ cột
-function drawCharts(laborPowerValue, surplusValue, totalValue) {
-    // Biểu đồ cột
-    const ctxBar = document.getElementById('surplusChart');
-    if (!ctxBar) return;
+// Scroll animations for timeline items
+function initScrollAnimations() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '0px 0px -100px 0px'
+    };
 
-    // Hủy biểu đồ cũ nếu có
-    if (surplusChart) {
-        surplusChart.destroy();
-    }
-
-    // Tạo biểu đồ cột mới
-    surplusChart = new Chart(ctxBar, {
-        type: 'bar',
-        data: {
-            labels: ['Tổng giá trị tạo ra', 'Giá trị sức lao động (v)', 'Giá trị thặng dư (m)'],
-            datasets: [{
-                label: 'Giá trị (VNĐ)',
-                data: [totalValue, laborPowerValue, surplusValue],
-                backgroundColor: [
-                    'rgba(37, 99, 235, 0.8)',   // Xanh dương cho tổng giá trị
-                    'rgba(245, 158, 11, 0.8)',  // Vàng cam cho giá trị sức lao động
-                    'rgba(30, 64, 175, 0.8)'    // Xanh dương đậm cho giá trị thặng dư
-                ],
-                borderColor: [
-                    'rgba(37, 99, 235, 1)',
-                    'rgba(245, 158, 11, 1)',
-                    'rgba(30, 64, 175, 1)'
-                ],
-                borderWidth: 2
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: false
-                },
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            const value = new Intl.NumberFormat('vi-VN').format(Math.round(context.parsed.y));
-                            return value + ' VNĐ';
-                        }
-                    }
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        callback: function(value) {
-                            if (value >= 1000000000) {
-                                return (value / 1000000000).toFixed(1) + ' tỷ';
-                            } else if (value >= 1000000) {
-                                return (value / 1000000).toFixed(1) + ' triệu';
-                            } else if (value >= 1000) {
-                                return (value / 1000).toFixed(1) + ' nghìn';
-                            }
-                            return value;
-                        }
-                    },
-                    title: {
-                        display: true,
-                        text: 'Giá trị (VNĐ)',
-                        color: '#2563eb',
-                        font: {
-                            weight: 'bold'
-                        }
-                    }
-                },
-                x: {
-                    ticks: {
-                        color: '#333',
-                        font: {
-                            weight: 'bold'
-                        }
-                    }
-                }
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
             }
-        }
-    });
+        });
+    }, observerOptions);
 
-    // Biểu đồ tròn
-    const ctxPie = document.getElementById('pieChart');
-    if (!ctxPie) return;
-
-    // Hủy biểu đồ cũ nếu có
-    if (pieChart) {
-        pieChart.destroy();
-    }
-
-    // Tạo biểu đồ tròn mới
-    pieChart = new Chart(ctxPie, {
-        type: 'pie',
-        data: {
-            labels: ['Giá trị sức lao động (v)', 'Giá trị thặng dư (m)'],
-            datasets: [{
-                data: [laborPowerValue, surplusValue],
-                backgroundColor: [
-                    'rgba(245, 158, 11, 0.8)',  // Vàng cam cho giá trị sức lao động
-                    'rgba(37, 99, 235, 0.8)'   // Xanh dương cho giá trị thặng dư
-                ],
-                borderColor: [
-                    'rgba(245, 158, 11, 1)',
-                    'rgba(37, 99, 235, 1)'
-                ],
-                borderWidth: 2
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    labels: {
-                        font: {
-                            size: 14,
-                            weight: 'bold'
-                        },
-                        color: '#333'
-                    }
-                },
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            const label = context.label || '';
-                            const value = new Intl.NumberFormat('vi-VN').format(Math.round(context.parsed));
-                            const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                            const percentage = ((context.parsed / total) * 100).toFixed(1);
-                            return label + ': ' + value + ' VNĐ (' + percentage + '%)';
-                        }
-                    }
-                }
-            }
-        }
+    timelineItems.forEach(item => {
+        observer.observe(item);
     });
 }
 
-// Export function để sử dụng trong HTML
-window.navigateToPage = navigateToPage;
-window.calculateSurplusValue = calculateSurplusValue;
+// Feedback form
+function initFeedbackForm() {
+    const form = document.getElementById('feedbackForm');
+    
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(form);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
+            
+            // Here you would typically send the data to a server
+            // For now, we'll just show an alert
+            alert(`Cảm ơn bạn ${name} đã gửi phản hồi!\n\nChúng tôi đã nhận được phản hồi của bạn và sẽ xem xét trong thời gian sớm nhất.`);
+            
+            // Reset form
+            form.reset();
+        });
+    }
+}
+
+// Smooth scroll for hero buttons
+document.addEventListener('DOMContentLoaded', function() {
+    const heroButtons = document.querySelectorAll('.hero-buttons .btn');
+    
+    heroButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const targetSection = document.querySelector(href);
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+});
+
+// Add scroll effect to navbar
+let lastScroll = 0;
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > 100) {
+        navbar.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+    } else {
+        navbar.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+    }
+    
+    lastScroll = currentScroll;
+});
