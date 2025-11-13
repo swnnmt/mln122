@@ -4,43 +4,50 @@ const eventData = {
         year: '1637',
         title: 'Bong bóng hoa Tulip',
         description: 'Bong bóng hoa Tulip (Tulip Mania) là một trong những ví dụ đầu tiên về bong bóng đầu cơ trong lịch sử tài chính. Vào thế kỷ 17 tại Hà Lan, giá hoa tulip tăng vọt đến mức một củ tulip có thể đổi được một ngôi nhà. Tuy nhiên, bong bóng này nhanh chóng vỡ, khiến nhiều nhà đầu tư mất trắng.',
-        lesson: 'Bài học về tâm lý thị trường và đầu cơ không có cơ sở. Sự kiện này cho thấy giá cả có thể tách rời hoàn toàn khỏi giá trị thực tế khi tâm lý đám đông chi phối thị trường.'
+        lesson: 'Bài học về tâm lý thị trường và đầu cơ không có cơ sở. Sự kiện này cho thấy giá cả có thể tách rời hoàn toàn khỏi giá trị thực tế khi tâm lý đám đông chi phối thị trường.',
+        image : 'MLN/Tulipomania.jpg'
     },
     wallstreet: {
         year: '1929',
         title: 'Sụp đổ Phố Wall',
         description: 'Ngày 24 tháng 10 năm 1929, thị trường chứng khoán Mỹ sụp đổ, mở đầu cho cuộc Đại Suy thoái (Great Depression) kéo dài đến những năm 1930. Chỉ số Dow Jones giảm gần 90% từ đỉnh, hàng triệu người mất việc làm, và nền kinh tế toàn cầu rơi vào khủng hoảng sâu sắc.',
-        lesson: 'Dẫn đến sự ra đời của Ủy ban Chứng khoán Mỹ (SEC) và các quy định tài chính mới. Bài học về tầm quan trọng của giám sát thị trường, minh bạch thông tin, và bảo vệ nhà đầu tư nhỏ.'
+        lesson: 'Dẫn đến sự ra đời của Ủy ban Chứng khoán Mỹ (SEC) và các quy định tài chính mới. Bài học về tầm quan trọng của giám sát thị trường, minh bạch thông tin, và bảo vệ nhà đầu tư nhỏ.',
+        image : 'MLN/R.jpg'
     },
     bretton: {
         year: '1971',
         title: 'Hệ thống Bretton Woods sụp đổ',
         description: 'Tổng thống Mỹ Richard Nixon tuyên bố chấm dứt chuyển đổi USD sang vàng, kết thúc hệ thống Bretton Woods được thiết lập sau Thế chiến II. Điều này chấm dứt bản vị vàng và đưa USD trở thành tiền tệ dự trữ chính của thế giới với tỷ giá thả nổi.',
-        lesson: 'Mở ra kỷ nguyên của tiền tệ fiat và tỷ giá thả nổi. Bài học về sự linh hoạt cần thiết trong chính sách tiền tệ và tác động của quyết định tài chính quốc gia đến nền kinh tế toàn cầu.'
+        lesson: 'Mở ra kỷ nguyên của tiền tệ fiat và tỷ giá thả nổi. Bài học về sự linh hoạt cần thiết trong chính sách tiền tệ và tác động của quyết định tài chính quốc gia đến nền kinh tế toàn cầu.',
+        image : 'MLN/bretton-woods-la-gi-2.jpg'
     },
     asia: {
         year: '1997',
         title: 'Khủng hoảng tài chính châu Á',
         description: 'Bắt đầu từ Thái Lan với việc phá giá đồng baht, khủng hoảng nhanh chóng lan rộng sang các nước châu Á khác như Indonesia, Hàn Quốc, Malaysia. Nguyên nhân chính là dòng vốn nóng (hot money), chính sách tỷ giá cố định không bền vững, và nợ nước ngoài quá lớn.',
-        lesson: 'Tầm quan trọng của quản lý dòng vốn nóng, chính sách tỷ giá linh hoạt, và xây dựng dự trữ ngoại hối. Các quốc gia học cách tăng cường giám sát ngân hàng và quản lý nợ nước ngoài hiệu quả hơn.'
+        lesson: 'Tầm quan trọng của quản lý dòng vốn nóng, chính sách tỷ giá linh hoạt, và xây dựng dự trữ ngoại hối. Các quốc gia học cách tăng cường giám sát ngân hàng và quản lý nợ nước ngoài hiệu quả hơn.',
+        image : 'MLN/khung hoang tai chinh chau a.webp'
     },
     dotcom: {
         year: '2000',
         title: 'Bong bóng Dot-com',
         description: 'Sự bùng nổ của các công ty internet trong những năm 1990 dẫn đến bong bóng đầu cơ lớn. Nhiều công ty công nghệ được định giá hàng tỷ USD dù chưa có lợi nhuận. Khi bong bóng vỡ vào năm 2000, hàng nghìn công ty phá sản, và thị trường chứng khoán công nghệ mất hàng nghìn tỷ USD giá trị.',
-        lesson: 'Bài học về định giá hợp lý và phân tích cơ bản. Nhấn mạnh tầm quan trọng của việc đánh giá giá trị thực tế của công ty thay vì chỉ dựa vào xu hướng và hype. Vẫn còn giá trị cho các nhà đầu tư công nghệ hiện nay (AI, startup, crypto).'
+        lesson: 'Bài học về định giá hợp lý và phân tích cơ bản. Nhấn mạnh tầm quan trọng của việc đánh giá giá trị thực tế của công ty thay vì chỉ dựa vào xu hướng và hype. Vẫn còn giá trị cho các nhà đầu tư công nghệ hiện nay (AI, startup, crypto).',
+        image : 'MLN/bong bong dotcom.jpg'
     },
     crisis: {
         year: '2008',
         title: 'Khủng hoảng tài chính toàn cầu',
         description: 'Cuộc khủng hoảng tài chính lớn nhất kể từ 1929, bắt đầu từ thị trường nhà đất dưới chuẩn (subprime) ở Mỹ. Ngân hàng Lehman Brothers phá sản, gây ra hiệu ứng domino trên toàn cầu. Hàng triệu người mất nhà, các ngân hàng lớn phải được cứu trợ, và nền kinh tế toàn cầu rơi vào suy thoái.',
-        lesson: 'Thúc đẩy các quy định như Dodd-Frank Act để kiểm soát rủi ro "Too Big to Fail". Các ngân hàng phải duy trì tỷ lệ vốn cao hơn, thực hiện stress testing thường xuyên, và quản lý rủi ro chặt chẽ hơn. Bài học về tầm quan trọng của giám sát và quản lý rủi ro hệ thống.'
+        lesson: 'Thúc đẩy các quy định như Dodd-Frank Act để kiểm soát rủi ro "Too Big to Fail". Các ngân hàng phải duy trì tỷ lệ vốn cao hơn, thực hiện stress testing thường xuyên, và quản lý rủi ro chặt chẽ hơn. Bài học về tầm quan trọng của giám sát và quản lý rủi ro hệ thống.',
+        image : 'MLN/khung-hoang-tai-chinh toan cau.jpg'
     },
     crypto: {
         year: '2010+',
         title: 'Sự trỗi dậy của tiền điện tử',
         description: 'Bitcoin, được tạo ra vào năm 2009, đã mở ra một chương mới trong lịch sử tài chính. Blockchain và công nghệ phân tán thách thức hệ thống tài chính truyền thống. Tiền điện tử, DeFi (Decentralized Finance), và NFT đã tạo ra các hình thức đầu tư và giao dịch hoàn toàn mới.',
-        lesson: 'Blockchain và DeFi thách thức hệ thống tài chính truyền thống. Các ngân hàng trung ương đang nghiên cứu CBDC (Central Bank Digital Currency) và các quy định mới cho tài sản số. Bài học về sự đổi mới công nghệ và tầm quan trọng của việc thích ứng với thay đổi.'
+        lesson: 'Blockchain và DeFi thách thức hệ thống tài chính truyền thống. Các ngân hàng trung ương đang nghiên cứu CBDC (Central Bank Digital Currency) và các quy định mới cho tài sản số. Bài học về sự đổi mới công nghệ và tầm quan trọng của việc thích ứng với thay đổi.',
+        image : 'MLN/su troi day cua tien dien tu.webp'
     }
 };
 
@@ -170,6 +177,9 @@ function showEventModal(event) {
         <div class="event-detail">
             <div class="event-detail-year">${event.year}</div>
             <h2 class="event-detail-title">${event.title}</h2>
+            <div class="event-detail-image">
+                <img src="${event.image}" alt="${event.title}" />
+            </div>
             <div class="event-detail-description">
                 ${event.description}
             </div>

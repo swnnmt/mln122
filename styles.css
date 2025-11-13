@@ -760,6 +760,22 @@ html {
     margin-bottom: 8px;
 }
 
+/* Container grid */
+.lessons-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 32px; /* Khoảng cách giữa các hàng */
+    margin-top: 60px;
+}
+
+/* Mỗi hàng */
+.lessons-row {
+    display: flex;
+    gap: 32px; /* Khoảng cách giữa 2 card */
+    justify-content: space-between;
+    height: 650px; /* 🔹 Chiều cao cố định cho toàn hàng */
+}
+
 .lesson-header h3 {
     font-size: 1.5rem;
     font-weight: 700;
@@ -768,6 +784,14 @@ html {
 .lesson-content {
     padding: 32px;
 }
+.lesson-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    display: block;
+}
 
 .lesson-content h4 {
     color: var(--primary-blue);
@@ -775,7 +799,13 @@ html {
     margin-bottom: 16px;
     font-weight: 700;
 }
-
+.event-detail-image img {
+    width: 400px;
+    height: 300px;
+    display: block;
+    margin: 0 auto 16px auto;
+    border-radius: 8px;
+}
 .lesson-content p {
     color: var(--text-light);
     line-height: 1.8;
